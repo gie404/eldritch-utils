@@ -15,7 +15,7 @@ def get_prob_expr(test, fail):
             specifier = int(test[0].split(':')[1])
             x = sym.Symbol('r' + specifier_str)
             if specifier <= 5:
-                expr = 1 - pow(sym.Rational(2, 3), x + test[1])
+                expr = 1 - pow(sym.Rational(2, 3), sym.Max(x + test[1], 1))
             else:
                 expr = x
         case 'delayed':
